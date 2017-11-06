@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>随机动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #box{
+            width:1000px;
+            height:640px;
+            margin:100px auto;
+            box-shadow: 0 0 5px #000;
+        }
+        #box ul li{
+            width:288px;
+            height:180px;
+            border: 3px solid white;
+            margin:20px 0 0 30px;
+            float: left;
+            box-shadow: 0 0 5px #000;
+        }
+        #box ul li.rot{
+            animation:rot 1s linear;
+        }
+        #box ul li.sca{
+            animation:sca 1s linear;
+        }
+        #box ul li.top{
+            animation:top 1s linear;
+        }
+        @keyframes rot {
+            0%{transform: rotate(0deg)}
+            20%{transform: rotate(-20deg)}
+            40%{transform: rotate(15deg)}
+            60%{transform: rotate(-10deg)}
+            80%{transform: rotate(5deg)}
+            100%{transform: rotate(0deg)}
+        }
+        @keyframes sca {
+            0%{transform: scale(1)}
+            20%{transform: scale(1.2)}
+            40%{transform: scale(0.8)}
+            60%{transform: scale(1.1)}
+            80%{transform: scale(0.9)}
+            100%{transform: scale(1)}
+        }
+        @keyframes top {
+            0%{transform: translateY(0)}
+            20%{transform: translateY(-20px)}
+            40%{transform: translateY(15px)}
+            60%{transform: translateY(-10px)}
+            80%{transform: translateY(5px)}
+            100%{transform: translateY(0)}
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var aLi = document.getElementsByTagName('li');
+
+            var arr = ['rot','sca','top'];
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].onmouseenter = function () {
+                    var This = this;
+                    var a = Math.floor(Math.random()*3);
+                    this.className = '';
+                    setTimeout(function(){
+                        This.className = arr[a];
+                    },50);
+
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li><img src="images/s1.jpg" alt=""></li>
+            <li><img src="images/s2.jpg" alt=""></li>
+            <li><img src="images/s3.jpg" alt=""></li>
+            <li><img src="images/s4.jpg" alt=""></li>
+            <li><img src="images/s5.jpg" alt=""></li>
+            <li><img src="images/s6.jpg" alt=""></li>
+            <li><img src="images/s7.jpg" alt=""></li>
+            <li><img src="images/s8.jpg" alt=""></li>
+            <li><img src="images/s9.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>
